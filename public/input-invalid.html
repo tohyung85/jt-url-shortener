@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>JT URL Shortener Microservice</title>
+</head>
+
+<body>
+
+	<h1>Oops! The URL entered is invalid!</h1>
+
+	<h3>Example creation use:</h3>
+	<p>https://jt-url-shortener.herokuapp.com/new/https://www.google.com</p>
+	<p>https://jt-url-shortener.herokuapp.com/new/http://freecodecamp.com/news</p>
+	<p>If for some reason you wanna store a site which is invalid:</p>
+	<p>https://https://jt-url-shortener.herokuapp.com/new/invalid?allow=true</p>
+
+
+	<h3>Example creation output:</h3>
+	<p>{ "original_url": "http://freecodecamp.com/news", "short_url": "https://jt-url-shortener.herokuapp.com/4" }</p>
+
+	<h3>Usage:</h3>
+	<p>https://jt-url-shortener.herokuapp.com/4</p>
+
+	<h3>Will redirect to:</h3>
+	<p>http://freecodecamp.com/news</p>
+
+</body>
+
+
+</html>
