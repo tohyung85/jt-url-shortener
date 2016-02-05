@@ -14,9 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4",
-    "mongodb": "^2.1.5"
+    "mongodb": "^2.1.5",
+    "valid-url": "^1.0.9"
   },
   "engine": {
-    "node" : "5.5.0"
+    "node": "5.5.0"
   }
 }

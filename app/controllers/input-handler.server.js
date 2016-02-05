@@ -1,5 +1,7 @@
 'use strict';
 
+var validURI = require('valid-url');
+
 var InputHandler = function(app,db) {
 
 	var collection = db.collection('urlDatabase');
@@ -8,7 +10,11 @@ var InputHandler = function(app,db) {
 		var unfilteredStr = req.path;
 		var url = unfilteredStr.substring(5);		
 
+		var forceValid = req.query.allow;
 
+		if (!validURI.isWebUri(url) && !forceValid){
+			return res.json({error: "Please enter valid url"});
+		} 
 
 		collection.count({}, function(err, count){
 			if (err) {
