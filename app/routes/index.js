@@ -1,15 +1,11 @@
 'use strict';
 
-module.exports = function(app, db) {
+var InputHandler = require(process.cwd()+'/app/controllers/input-handler.server.js');
 
+module.exports = function(app, db) {
+	var inputHandler = new InputHandler(app, db);
 	app.route('/new*')
-		.get(function(req,res){
-			res.sendFile(process.cwd() + '/public/input-invalid.html');
-			console.log(req.path);
-			if (req.query.allow){
-				console.log(req.query.allow);	
-			}			
-		});
+		.get(inputHandler.insertNewUrl);
 		
 	app.route('/:short')
 		.get(function(req,res){
