@@ -8,9 +8,7 @@ module.exports = function(app, db) {
 		.get(inputHandler.insertNewUrl);
 		
 	app.route('/:short')
-		.get(function(req,res){
-			res.send(req.params.short);
-		});
+		.get(inputHandler.redirectUrl);
 
 	app.route('/')
 		.get(function(req, res){

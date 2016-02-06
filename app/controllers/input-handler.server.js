@@ -38,6 +38,23 @@ var InputHandler = function(app,db) {
 		});
 	}
 
+	this.redirectUrl = function(req, res) {
+		var shortIndex = req.params.short;
+		var shortenUrl = 'http://' + req.headers.host + '/' + shortIndex;
+
+		collection.findOne({'short_url': shortenUrl}, {'_id': false}, function(err, doc){
+			if (err) {
+				throw err;
+			}
+			if (doc){
+				res.redirect(doc.original_url);	
+			} else {
+				res.json({error: "no such short url found!"});
+			}
+			
+		});
+	}
+
 }
 
 module.exports = InputHandler;
